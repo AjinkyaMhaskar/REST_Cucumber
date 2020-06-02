@@ -43,6 +43,14 @@ public class ConfigFileReader {
 			throw new RuntimeException("baseURL_localhost not specified in the Configuration.properties file.");
 	}
 
+	public static String getBaseURL_GR() {
+		String baseURL_GR = properties.getProperty("baseURL_GR");
+		if (baseURL_GR != null)
+			return baseURL_GR;
+		else
+			throw new RuntimeException("baseURL_Magento not specified in the Configuration.properties file.");
+	}
+
 	public static String getUserName() {
 		String username = properties.getProperty("username");
 		if (username != null)

@@ -19,9 +19,11 @@ public class RestAssuredExtension {
 	public RestAssuredExtension() {
 		// arrange option
 		RequestSpecBuilder builder = new RequestSpecBuilder();
-		// builder.setBaseUri(ConfigFileReader.getBaseURL_Magento());
-		builder.setBaseUri(ConfigFileReader.getBaseURL_localhost());
+		builder.setBaseUri(ConfigFileReader.getBaseURL_Magento());
+		// builder.setBaseUri(ConfigFileReader.getBaseURL_localhost());
+		// builder.setBaseUri(ConfigFileReader.getBaseURL_GR());
 		builder.setContentType(ContentType.JSON);
+		// builder.setContentType(ContentType.XML);
 		RequestSpecification requestSpec = builder.build();
 		Request = RestAssured.given().spec(requestSpec);
 	}

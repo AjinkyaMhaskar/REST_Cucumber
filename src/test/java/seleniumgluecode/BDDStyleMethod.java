@@ -7,8 +7,12 @@ import static org.hamcrest.Matchers.is;
 import java.util.HashMap;
 
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseOptions;
 
 public class BDDStyleMethod {
+
+	public static ResponseOptions<Response> Request;
 
 	// Function to perform Get Operation using Path Parameter
 	// Example : http://localhost:3000/posts/1
@@ -33,5 +37,20 @@ public class BDDStyleMethod {
 
 		given().contentType(ContentType.JSON).with().body(postContent).when().post("http://localhost:3000/posts").then()
 				.body("author", is("mhaskar_PostMethod"));
+	}
+
+	@SuppressWarnings("deprecation")
+	public static ResponseOptions<Response> GetOpsWithQueryParams(String url) {
+
+		// query parameter
+		HashMap<String, String> queryParam = new HashMap<>();
+
+		queryParam.put("format", "xml");
+		queryParam.put("key", "4H9OpAay8m9znBqaZ72yw");
+		queryParam.put("q", "chetan bhagat");
+
+		Request = given().contentType(ContentType.XML).queryParameters(queryParam).get(url);
+		return Request;
+
 	}
 }
