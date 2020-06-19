@@ -86,4 +86,22 @@ public class RestAssuredExtension {
 		Request.body(body);
 		return Request.put(url);
 	}
+
+	public static ResponseOptions<Response> PostOpsWithBody(String url, String body) {
+		Request.body(body);
+		return Request.post(url);
+	}
+
+	public static ResponseOptions<Response> PostOpsWithBodyAndToken(String url, String token, String body) {
+		// Act
+		Request.headers("Authorization", "Bearer " + CommonStringFunctions.removeSpecialChar(token));
+		Request.body(body);
+		return Request.post(url);
+	}
+
+	public static ResponseOptions<Response> PostOpsWithToken(String url, String token) {
+		// Act
+		Request.headers("Authorization", "Bearer " + CommonStringFunctions.removeSpecialChar(token));
+		return Request.post(url);
+	}
 }

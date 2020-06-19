@@ -51,6 +51,14 @@ public class ConfigFileReader {
 			throw new RuntimeException("baseURL_Magento not specified in the Configuration.properties file.");
 	}
 
+	public static String getfrontend_URL_Magento() {
+		String frontend_URL_Magento = properties.getProperty("frontend_URL_Magento");
+		if (frontend_URL_Magento != null)
+			return frontend_URL_Magento;
+		else
+			throw new RuntimeException("frontend_URL_Magento not specified in the Configuration.properties file.");
+	}
+
 	public static String getUserName() {
 		String username = properties.getProperty("username");
 		if (username != null)
@@ -65,5 +73,45 @@ public class ConfigFileReader {
 			return password;
 		else
 			throw new RuntimeException("password not specified in the Configuration.properties file.");
+	}
+
+	public static String getCustomer_email() {
+		String customer_email = properties.getProperty("customer_email");
+		if (customer_email != null)
+			return customer_email;
+		else
+			throw new RuntimeException("customer_email not specified in the Configuration.properties file.");
+	}
+
+	public static String getCustomer_password() {
+		String customer_password = properties.getProperty("customer_password");
+		if (customer_password != null)
+			return customer_password;
+		else
+			throw new RuntimeException("customer_password not specified in the Configuration.properties file.");
+	}
+
+	public static String getSimple_product_sku() {
+		String simple_product_sku = properties.getProperty("simple_product_sku");
+		if (simple_product_sku != null)
+			return simple_product_sku;
+		else
+			throw new RuntimeException("simple_product_sku not specified in the Configuration.properties file.");
+	}
+
+	public static String getSimple_product_name() {
+		String simple_product_name = properties.getProperty("simple_product_name");
+		if (simple_product_name != null)
+			return simple_product_name;
+		else
+			throw new RuntimeException("simple_product_name not specified in the Configuration.properties file.");
+	}
+
+	public static String getSimple_product_type() {
+		String simple_product_type = properties.getProperty("simple_product_type");
+		if (simple_product_type != null)
+			return simple_product_type;
+		else
+			throw new RuntimeException("simple_product_type not specified in the Configuration.properties file.");
 	}
 }

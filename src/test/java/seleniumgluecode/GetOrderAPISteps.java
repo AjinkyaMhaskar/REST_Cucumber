@@ -38,7 +38,7 @@ public class GetOrderAPISteps {
 		HashMap<String, String> pathParam = new HashMap<>();
 		pathParam.put("postid", data.get(1).get(0));
 
-		// Perform put operation
+		// Perform get operation
 		response = RestAssuredExtension.GetOpsWithPathParamsWithToken(url, response.getBody().asString(), pathParam);
 	}
 
